@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Maya Reynolds, PsyD | Anxiety & Trauma Therapy in Santa Monica, CA</title>
+    <meta name="description" content="Licensed clinical psychologist in Santa Monica, California. Specializing in anxiety, trauma, EMDR, and burnout therapy for high-achieving adults. In-person and telehealth sessions available.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2D5F4C;
+            --secondary: #D4A574;
+            --accent: #8B7355;
+            --bg-light: #F8F6F3;
+            --text-dark: #2C2C2C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0;
+            border: none;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(45, 95, 76, 0.2);
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-left: 3px solid var(--secondary);
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            border-left-width: 6px;
+            transform: translateX(8px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(45, 95, 76, 0.85), rgba(139, 115, 85, 0.75));
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 1.5rem auto;
+        }
+
+        .image-frame {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 12px solid var(--bg-light);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .office-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .office-image {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+            background: #e0dcd7;
+        }
+
+        .office-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .office-image:hover img {
+            transform: scale(1.08);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e0dcd7;
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: #555;
+        }
+
+        .faq-answer.active {
+            max-height: 300px;
+            padding-top: 1rem;
+        }
+
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            max-height: 500px;
+        }
+
+        @media (max-width: 768px) {
+            .office-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="text-2xl font-light" style="font-family: 'Cormorant Garamond', serif; color: var(--primary);">
+                    Dr. Maya Reynolds
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-sm uppercase tracking-wide">Home</a>
+                    <a href="#about" class="nav-link text-sm uppercase tracking-wide">About</a>
+                    <a href="#services" class="nav-link text-sm uppercase tracking-wide">Services</a>
+                    <a href="#office" class="nav-link text-sm uppercase tracking-wide">Our Office</a>
+                    <a href="#faq" class="nav-link text-sm uppercase tracking-wide">FAQ</a>
+                    <a href="#contact" class="btn-primary text-sm">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden pb-4">
+                <a href="#home" class="block py-2 text-sm uppercase tracking-wide">Home</a>
+                <a href="#about" class="block py-2 text-sm uppercase tracking-wide">About</a>
+                <a href="#services" class="block py-2 text-sm uppercase tracking-wide">Services</a>
+                <a href="#office" class="block py-2 text-sm uppercase tracking-wide">Our Office</a>
+                <a href="#faq" class="block py-2 text-sm uppercase tracking-wide">FAQ</a>
+                <a href="#contact" class="block py-2 text-sm uppercase tracking-wide">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center" style="margin-top: -80px;">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=1600&q=80');"></div>
+        <div class="hero-overlay absolute inset-0"></div>
+        
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl mb-6 fade-in stagger-1">Find Relief from Anxiety,<br>Heal from Trauma</h1>
+            <p class="text-xl md:text-2xl mb-8 font-light fade-in stagger-2">Compassionate, evidence-based therapy for high-achieving adults in Santa Monica, California</p>
+            <a href="#contact" class="btn-primary text-lg fade-in stagger-3">Schedule a Consultation</a>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="py-24 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl mb-6 fade-in" style="color: var(--primary);">You're Exhausted from Overthinking</h2>
+            <div class="section-divider fade-in stagger-1"></div>
+            <p class="text-lg md:text-xl leading-relaxed mb-6 fade-in stagger-2">
+                You look successful on the outside—but inside, you're constantly overwhelmed by worry, tension, or the weight of past experiences. You feel stuck in cycles of anxiety, overthinking, or emotional exhaustion that no one else seems to notice.
+            </p>
+            <p class="text-lg leading-relaxed fade-in stagger-3" style="color: #666;">
+                I'm Dr. Maya Reynolds, a licensed clinical psychologist in Santa Monica. I specialize in helping thoughtful, high-achieving adults break free from anxiety, heal from trauma, and reconnect with themselves through EMDR, CBT, and body-oriented therapy.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-4" style="background: white;">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="image-frame">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80" alt="Dr. Maya Reynolds" class="w-full h-[500px] object-cover">
+                </div>
+                
+                <div>
+                    <h2 class="text-4xl mb-6 fade-in" style="color: var(--primary);">About Dr. Maya Reynolds</h2>
+                    <div class="section-divider" style="margin-left: 0;"></div>
+                    
+                    <p class="mb-4 fade-in stagger-2">
+                        I'm a licensed clinical psychologist based in Santa Monica, California, offering therapy for adults who feel overwhelmed by anxiety, stress, or the lingering effects of past experiences. Many of the people I work with are high-achieving, thoughtful, and self-aware—but internally feel exhausted, stuck in overthinking, or emotionally on edge.
+                    </p>
+                    
+                    <p class="mb-4 fade-in stagger-3">
+                        My work often focuses on anxiety, panic, trauma, and burnout. Clients frequently come to me feeling "functional" on the outside while quietly struggling with constant worry, tension in their body, difficulty sleeping, or a sense that they're always bracing for something to go wrong.
+                    </p>
+
+                    <p class="mb-6 fade-in stagger-4">
+                        I take a warm, collaborative, and grounded approach to therapy. Sessions are structured enough to feel supportive, while still leaving space for reflection and depth. I integrate evidence-based methods such as cognitive-behavioral therapy (CBT), EMDR, mindfulness-based practices, and body-oriented techniques to help clients understand both the emotional and physiological sides of what they're experiencing.
+                    </p>
+
+                    <div class="space-y-2 fade-in stagger-4">
+                        <p class="font-medium" style="color: var(--primary);">Areas of Focus:</p>
+                        <ul class="list-disc list-inside space-y-1" style="color: #666;">
+                            <li>Anxiety & Panic Disorders</li>
+                            <li>Trauma (Single-Incident & Complex)</li>
+                            <li>Professional Burnout & Perfectionism</li>
+                            <li>High Internal Pressure & Stress</li>
+                            <li>EMDR & Somatic Therapy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl mb-6 fade-in" style="color: var(--primary);">Therapeutic Approaches</h2>
+                <div class="section-divider fade-in stagger-1"></div>
+                <p class="text-lg max-w-3xl mx-auto fade-in stagger-2" style="color: #666;">
+                    I combine evidence-based methods with depth-oriented work to help you find relief, develop insight, and build resilience.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card fade-in stagger-1">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4" style="background: rgba(45, 95, 76, 0.1);">
+                        <svg class="w-6 h-6" style="color: var(--primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl mb-3" style="color: var(--primary);">EMDR Therapy</h3>
+                    <p style="color: #666;">
+                        Eye Movement Desensitization and Reprocessing (EMDR) is a powerful approach for processing traumatic memories and reducing their emotional charge. Whether you've experienced a single traumatic event or complex, long-standing patterns, EMDR helps your brain reprocess difficult experiences so they no longer control your present life. This method is paced carefully with an emphasis on safety and stabilization.
+                    </p>
+                </div>
+
+                <div class="service-card fade-in stagger-2">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4" style="background: rgba(45, 95, 76, 0.1);">
+                        <svg class="w-6 h-6" style="color: var(--primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl mb-3" style="color: var(--primary);">Anxiety & Panic Treatment</h3>
+                    <p style="color: #666;">
+                        Using cognitive-behavioral therapy (CBT) and mindfulness-based approaches, I help clients understand and manage anxiety, panic attacks, and constant worry. We'll work together to identify triggers, challenge anxious thought patterns, and develop practical coping strategies. You'll learn to recognize the physical signs of anxiety and build tools to feel more regulated in your daily life—not just during therapy sessions.
+                    </p>
+                </div>
+
+                <div class="service-card fade-in stagger-3">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4" style="background: rgba(45, 95, 76, 0.1);">
+                        <svg class="w-6 h-6" style="color: var(--primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl mb-3" style="color: var(--primary);">Burnout & High-Pressure Support</h3>
+                    <p style="color: #666;">
+                        Many of my clients are entrepreneurs, creatives, and professionals who've spent years pushing through stress and perfectionism. Therapy becomes a space to slow down, reconnect with yourself, and develop more sustainable ways of living and working. We address high internal pressure, disconnection from self, and the exhaustion that comes from constantly achieving without room to rest or reflect.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Office Section -->
+    <section id="office" class="py-24 px-4" style="background: white;">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl mb-6 fade-in" style="color: var(--primary);">A Calm, Grounding Space</h2>
+                <div class="section-divider fade-in stagger-1"></div>
+                <p class="text-lg max-w-3xl mx-auto mb-8 fade-in stagger-2" style="color: #666;">
+                    My Santa Monica office is a quiet, private space designed to feel calm and grounding. With natural light and a comfortable, uncluttered environment, clients often share that the space itself helps them feel more at ease the moment they arrive.
+                </p>
+            </div>
+
+            <div class="office-gallery mb-12">
+                <!-- IMPORTANT: Replace these placeholder URLs with your actual Google Drive image URLs -->
+                <!-- To get direct image URLs from Google Drive: -->
+                <!-- 1. Right-click image → Get link → Change to "Anyone with the link" -->
+                <!-- 2. Copy the FILE_ID from the URL -->
+                <!-- 3. Use format: https://drive.google.com/uc?export=view&id=FILE_ID -->
+                
+                <div class="office-image fade-in stagger-1">
+                    <img src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?w=800&q=80" alt="Therapy office waiting area">
+                    <!-- REPLACE WITH: https://drive.google.com/uc?export=view&id=YOUR_IMAGE_1_FILE_ID -->
+                </div>
+                <div class="office-image fade-in stagger-2">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="Comfortable therapy room">
+                    <!-- REPLACE WITH: https://drive.google.com/uc?export=view&id=YOUR_IMAGE_2_FILE_ID -->
+                </div>
+                <div class="office-image fade-in stagger-3">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80" alt="Peaceful office environment">
+                    <!-- REPLACE WITH: https://drive.google.com/uc?export=view&id=YOUR_IMAGE_3_FILE_ID -->
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="fade-in stagger-1">
+                    <h3 class="text-2xl mb-4" style="color: var(--primary);">Office Location</h3>
+                    <p class="mb-2" style="color: #666;">
+                        <strong>Address:</strong><br>
+                        123th Street 45 W<br>
+                        Santa Monica, CA 90401
+                    </p>
+                    <p style="color: #666;">
+                        Conveniently located in Santa Monica with accessible parking. The office provides a private, comfortable environment where you can feel safe and supported.
+                    </p>
+                </div>
+
+                <div class="fade-in stagger-2">
+                    <h3 class="text-2xl mb-4" style="color: var(--primary);">Session Options</h3>
+                    <p style="color: #666;">
+                        I offer both in-person sessions at my Santa Monica office and secure telehealth appointments for clients located anywhere in California. Telehealth sessions provide the same quality of care and confidentiality as in-person visits, with added flexibility for your schedule and comfort.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl mb-6 fade-in" style="color: var(--primary);">Frequently Asked Questions</h2>
+                <div class="section-divider fade-in stagger-1"></div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="faq-item fade-in stagger-1">
+                    <div class="faq-question">
+                        <span>How do I know if therapy is right for me?</span>
+                        <span class="text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        If you're feeling overwhelmed, stuck in patterns of anxiety or overthinking, or if past experiences continue to affect your present life, therapy can help. Many of my clients are high-functioning but internally exhausted—therapy provides a space to slow down, process what you're experiencing, and develop sustainable ways to move forward. I offer a free initial consultation to discuss your concerns and determine if we're a good fit.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in stagger-2">
+                    <div class="faq-question">
+                        <span>What can I expect in our first session?</span>
+                        <span class="text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        The first session is about understanding what brings you to therapy and getting to know each other. I'll ask about your current concerns, background, and what you're hoping to achieve. This is also your time to ask questions and see if my approach feels right for you. There's no pressure—therapy works best when you feel respected, understood, and actively involved in the process.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in stagger-3">
+                    <div class="faq-question">
+                        <span>Do you accept insurance?</span>
+                        <span class="text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        I am an out-of-network provider and can provide superbills for potential insurance reimbursement. Many clients find that their PPO plans cover a significant portion of out-of-network services. I'm happy to discuss your insurance benefits and help you understand your coverage options. My standard rate is $200 for 50-minute individual sessions.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in stagger-4">
+                    <div class="faq-question">
+                        <span>How long does therapy typically last?</span>
+                        <span class="text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        The length of therapy varies based on your individual needs and goals. Some clients benefit from shorter-term, focused work over several months, while others find value in longer-term support. We'll regularly check in about your progress and adjust our approach as needed. My goal is not just symptom relief, but helping you develop insight, resilience, and a stronger relationship with yourself over time.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in stagger-1">
+                    <div class="faq-question">
+                        <span>What makes your approach different?</span>
+                        <span class="text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        I combine practical, evidence-based tools with depth-oriented work. Sessions are structured enough to feel supportive while leaving space for reflection and genuine insight. I understand the realities of living in a fast-paced environment—many of my clients are high-achievers who need therapy that respects both their intelligence and their exhaustion. I address both the emotional and physiological sides of anxiety and trauma, not just surface-level symptoms.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-4" style="background: white;">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl mb-6 fade-in" style="color: var(--primary);">Ready to Begin?</h2>
+            <div class="section-divider fade-in stagger-1"></div>
+            <p class="text-lg mb-12 max-w-2xl mx-auto fade-in stagger-2" style="color: #666;">
+                Taking the first step toward healing requires courage. I'm here to provide a safe, collaborative space for your journey. Reach out today to schedule a free consultation.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="fade-in stagger-1">
+                    <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: rgba(45, 95, 76, 0.1);">
+                        <svg class="w-8 h-8" style="color: var(--primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl mb-2" style="color: var(--primary);">Call</h3>
+                    <a href="tel:+13105551234" class="hover:underline" style="color: #666;">(310) 555-1234</a>
+                </div>
+
+                <div class="fade-in stagger-2">
+                    <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: rgba(45, 95, 76, 0.1);">
+                        <svg class="w-8 h-8" style="color: var(--primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl mb-2" style="color: var(--primary);">Email</h3>
+                    <a href="mailto:contact@mayareynoldspsyd.com" class="hover:underline" style="color: #666;">contact@mayareynoldspsyd.com</a>
+                </div>
+
+                <div class="fade-in stagger-3">
+                    <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: rgba(45, 95, 76, 0.1);">
+                        <svg class="w-8 h-8" style="color: var(--primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl mb-2" style="color: var(--primary);">Location</h3>
+                    <p style="color: #666;">Santa Monica, CA</p>
+                </div>
+            </div>
+
+            <a href="mailto:contact@mayareynoldspsyd.com" class="btn-primary text-lg fade-in stagger-4">Schedule Your Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4" style="background: var(--primary); color: white;">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-2xl mb-4" style="font-family: 'Cormorant Garamond', serif;">Dr. Maya Reynolds, PsyD</p>
+            <p class="mb-6 opacity-90">Licensed Clinical Psychologist | California License #PSY12345</p>
+            <p class="text-sm opacity-75">
+                © 2026 Dr. Maya Reynolds Therapy. All rights reserved. | 
+                <a href="#" class="underline hover:opacity-100">Privacy Policy</a> | 
+                <a href="#" class="underline hover:opacity-100">HIPAA Notice</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('active');
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isActive = answer.classList.contains('active');
+                
+                // Close all answers
+                document.querySelectorAll('.faq-answer').forEach(a => {
+                    a.classList.remove('active');
+                });
+                
+                // Toggle current answer
+                if (!isActive) {
+                    answer.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.remove('active');
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
