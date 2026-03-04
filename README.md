@@ -290,3 +290,4 @@ For questions about:
 **Built with care for Dr. Maya Reynolds Therapy**
 Portland, Oregon | 2026
 
+## Made with Vinay singh tomar
